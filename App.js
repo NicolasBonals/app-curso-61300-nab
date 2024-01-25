@@ -6,6 +6,7 @@ export default function App() {
     <View style={{paddingTop: 20, paddingLeft: 30}}>
       <Text>Hola Coder!</Text>
       <Text>Empecemos con esto!</Text>
+      <Text>Otro texto para probar</Text>
       <StatusBar style="auto" />
     </View>
   );
