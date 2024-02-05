@@ -7,6 +7,7 @@ import cartIcon from './assets/cartIcon.png';
 import Constants from 'expo-constants';
 
 
+
 export default function App() {
   
   const [counter, setCounter] = useState(0);
@@ -83,10 +84,13 @@ export default function App() {
 
   const removeItem = () => {
     const filteredArray = cartItems.filter((item)=> item.id !== itemSelected )
-    setCartItems(filteredArray)
+    setCartItems(filteredArray);
+    setModalVisible(false);
   }
-
+  
   const RemoveModal = ()=> {
+
+    
     return (
     <Modal animationType="slide" transparent visible={modalVisible} onRequestClose>
       <View>
