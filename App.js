@@ -1,43 +1,46 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Pressable} from 'react-native';
-import { useState } from 'react';
-import imagenEjemplo from './assets/imagenEjemplo.jpg';
-import cartIcon from './assets/cartIcon.png';
-import Constants from 'expo-constants';
-import RemoveModal from './src/components/RemoveModal';
-import CounterComponent from './src/components/CountComponent';
-import FlatListComponent from './src/components/FlatList';
+// import { StatusBar } from 'expo-status-bar';
+// import { StyleSheet, Text, View, Image, ImageBackground, TextInput, Pressable} from 'react-native';
+// import { useState } from 'react';
+// import imagenEjemplo from './assets/imagenEjemplo.jpg';
+// import cartIcon from './assets/cartIcon.png';
+// import Constants from 'expo-constants';
+// import RemoveModal from './src/components/RemoveModal';
+// import CounterComponent from './src/components/CountComponent';
+// import FlatListComponent from './src/components/FlatList';
+import Home from './src/screens/Home';
+
 
 
 export default function App() {
   
-  const [inputValue, setInputValue] = useState('');
-  const [cartItems, setCartItems] = useState([]);
-  const [itemSelected, setItemSelected] = useState(null);
-  const [modalVisible, setModalVisible] = useState(false);
+  // const [inputValue, setInputValue] = useState('');
+  // const [cartItems, setCartItems] = useState([]);
+  // const [itemSelected, setItemSelected] = useState(null);
+  // const [modalVisible, setModalVisible] = useState(false);
 
-  const handleInputValue = (value) => setInputValue(value);
+  // const handleInputValue = (value) => setInputValue(value);
 
-  const removeItem = () => {
-      const filteredArray = cartItems.filter((item)=> item.id !== itemSelected )
-      setCartItems(filteredArray);
-      setModalVisible(false);
-    }
+  // const removeItem = () => {
+  //     const filteredArray = cartItems.filter((item)=> item.id !== itemSelected )
+  //     setCartItems(filteredArray);
+  //     setModalVisible(false);
+  //   }
 
     
-  const addItem = () => {
-    const newItem = {
-      name: inputValue,
-      id: new Date().getTime(),
-    }
+  // const addItem = () => {
+  //   const newItem = {
+  //     name: inputValue,
+  //     id: new Date().getTime(),
+  //   }
 
-    setCartItems([...cartItems, newItem])
-  }
+  //   setCartItems([...cartItems, newItem])
+  // }
 
 
-  return (
-    <View>
-      <ImageBackground style={{width: '100%', height: '100%'}} source={{uri: 'https://img.freepik.com/vector-gratis/marco-fondo-azul-fluido_53876-99019.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1706918400&semt=ais'}}>
+  return <Home />
+    // <View>
+      
+      /* <ImageBackground style={{width: '100%', height: '100%'}} source={{uri: 'https://img.freepik.com/vector-gratis/marco-fondo-azul-fluido_53876-99019.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1706918400&semt=ais'}}>
       <View style={styles.container}>
         <StatusBar style='auto'/>
 
@@ -71,36 +74,29 @@ export default function App() {
         
         
       </View>
-      </ ImageBackground>
-    </View>
-  );
+      </ ImageBackground> */
+    // </View>
 }
 
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: Constants.statusBarHeight, 
-    paddingLeft: 30, 
-    // backgroundColor: 'aqua', 
-    flex: 1
-  },
+// const styles = StyleSheet.create({
+//   container: {
+//     paddingTop: Constants.statusBarHeight, 
+//     paddingLeft: 30,  
+//     flex: 1
+//   },
 
-  productsContainer:{
-    justifyContent: 'center',
-    alignItems: 'center',
-    paddingVertical: 10,
-  },
-  // modalContainer:{
-  //   justifyContent: 'center',
-  //   alignItems: 'center',
-  //   flex: 10,
-  // },
+//   productsContainer:{
+//     justifyContent: 'center',
+//     alignItems: 'center',
+//     paddingVertical: 10,
+//   },
 
-  products:{
-    fontSize: 16,
-    fontWeight: "bold",
-    padding: 4,
-    borderRadius: 4,
-    borderBlockColor: "red",
-  },
+//   products:{
+//     fontSize: 16,
+//     fontWeight: "bold",
+//     padding: 4,
+//     borderRadius: 4,
+//     borderBlockColor: "red",
+//   },
 
-});
+// });
