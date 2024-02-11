@@ -1,6 +1,7 @@
 import { Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import Card from './Card'
+import { colors } from "../global/colors";
 
 const CategoryItem = ({category, setCategorySelected}) => {
   return (
@@ -21,14 +22,23 @@ const CategoryItem = ({category, setCategorySelected}) => {
 export default CategoryItem
 
 const styles = StyleSheet.create({
+    
     container:{
-        shadowColor: "#000",
+        width: 150,
+        height: 40,
+        backgroundColor: colors.blue_200,
+        borderWidth: 2, 
+        borderColor: 'blue',
+        justifyContent: 'center',
+        alignItems: 'center', 
+        shadowColor: "blue",
         shadowOffset:{
         width: 0,
-        height: 10,
+        height: 1,
         },
-        shadowOpacity: 0.51,
-        shadowRadius: 13.16,
+        shadowOpacity: 0.22,
+        shadowRadius: 2.22,
+        elevation: 3,
         elevation: 4,
         borderRadius: 10,
     },
