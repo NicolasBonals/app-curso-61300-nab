@@ -1,12 +1,15 @@
-import { Text, StyleSheet } from 'react-native'
+import { Text, StyleSheet, Pressable } from 'react-native'
 import React from 'react'
 import Card from './Card'
 
-const CategoryItem = ({category}) => {
+const CategoryItem = ({category, setCategorySelected}) => {
   return (
     <>
-        <Card style={{paddingTop: 10}}>
-            <Text style={styles.text}>{category}</Text>
+        <Card style={styles.container}>
+            <Pressable onPress={()=> setCategorySelected(category)}>
+                <Text style={styles.text}>{category}</Text>
+            </Pressable>
+            
         </ Card>
        
     </>
@@ -27,9 +30,11 @@ const styles = StyleSheet.create({
         shadowOpacity: 0.51,
         shadowRadius: 13.16,
         elevation: 4,
+        borderRadius: 10,
     },
     text:{
         fontSize: 15,
+        fontFamily: 'latoBlack',
     },
 
 })

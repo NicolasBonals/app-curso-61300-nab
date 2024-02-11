@@ -16,7 +16,7 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.blue_100,
         width: '100%',
-        paddingVertical: '10px',
+        paddingVertical: 60,
         
     },
     text:{
@@ -24,6 +24,7 @@ const styles = StyleSheet.create({
         color: "red",
         textAlign: 'center',
         fontWeight: 'bold',
+        paddingVertical: 60,
     }
 
 })

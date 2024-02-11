@@ -4,13 +4,13 @@ import CategoryItem from "./CategoryItem";
 
 
 
-const Categories = () => {
+const Categories = ({setCategorySelected}) => {
     return(
         <View>
             <FlatList
             data={categories}
             renderItem={({ item }) => (
-                <CategoryItem category = {item}/>
+                <CategoryItem setCategorySelected={setCategorySelected} category = {item}/>
             )}
             keyExtractor={(category) => category}
             />

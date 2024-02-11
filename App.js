@@ -7,7 +7,13 @@
 // import RemoveModal from './src/components/RemoveModal';
 // import CounterComponent from './src/components/CountComponent';
 // import FlatListComponent from './src/components/FlatList';
+import { useState } from 'react';
+import { useFonts } from "expo-font"; 
+
 import Home from './src/screens/Home';
+import ItemListCategories from './src/screens/ItemListCategories';
+import { fonts } from './src/global/fonts';
+
 
 
 
@@ -35,9 +41,26 @@ export default function App() {
 
   //   setCartItems([...cartItems, newItem])
   // }
+  
+  const [categorySelected, setCategorySelected] = useState("");
+  const [fontsLoaded] = useFonts(fonts);
 
+  if(!fontsLoaded){
+    return null
+  }
 
-  return <Home />
+  return (
+  <>
+  {categorySelected ? (
+    <ItemListCategories setCategorySelected={setCategorySelected}/>
+    )
+   : (
+     <Home setCategorySelected={setCategorySelected}/>
+  )}
+   
+   
+  </>
+  )
     // <View>
       
       /* <ImageBackground style={{width: '100%', height: '100%'}} source={{uri: 'https://img.freepik.com/vector-gratis/marco-fondo-azul-fluido_53876-99019.jpg?size=626&ext=jpg&ga=GA1.1.87170709.1706918400&semt=ais'}}>
