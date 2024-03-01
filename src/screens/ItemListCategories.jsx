@@ -1,43 +1,44 @@
-import { View, FlatList, Pressable, Text, StyleSheet } from "react-native";
-import React, { useState, useEffect} from "react";
+import { useEffect, useState } from "react";
+import { View, FlatList, StyleSheet, Text, Pressable } from "react-native";
 import allProducts from "../data/products.json";
 import ProductItem from "../components/ProductItem";
 import Search from "../components/Search";
-import Header from "../components/Header";
 import { colors } from "../global/colors";
 
-const ItemListCategories =({category, setCategorySelected}) => {
-    const [products, setProducts] = useState([]);
-    const [keyword, setKeyword] = useState("");
-    
-    useEffect(() => {
-        if(category) {
-            const products = allProducts.filter((product) => product.category === category);
-            const filteredProducts = products.filter((product) => product.title.includes(keyword));
-            setProducts(filteredProducts);
-        }
-    }, [category, keyword]);
-    
-    return (
-        <View style={styles.pageContainer}> 
-            <Header title={category}/>
-            <Search keyword={keyword} onSearch={setKeyword}/>
-            <FlatList
-                data={products}
-                renderItem={({item}) => <ProductItem product={item}/>}
-                keyExtractor={(item)=>item.id}
-            />
-            <Pressable onPress={()=> setCategorySelected()}>
-                <Text style={styles.text}>Volver Atras</Text>
-            </Pressable>
-        </View>
+function ItemListCategories({ navigation, route }) {
+  const [products, setProducts] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
-        
-    );
-};
+  const { category } = route.params;
+
+  useEffect(() => {
+    if (category) {
+      const products = allProducts.filter((product) => product.category === category);
+      const filteredProducts = products.filter((product) =>
+        product.title.includes(keyword)
+      );
+      setProducts(filteredProducts);
+    } else {
+      const filteredProducts = allProducts.filter((product) =>
+        product.title.includes(keyword)
+      );
+      setProducts(filteredProducts);
+    }
+  }, [category, keyword]);
+
+  return (
+    <View style={styles.container}>
+      <Search onSearch={setKeyword} />
+      <FlatList
+        data={products}
+        renderItem={({ item }) => <ProductItem product={item} navigation={navigation} />}
+        keyExtractor={(item) => item.id}
+      />
+    </View>
+  );
+}
 
 export default ItemListCategories;
-
 const styles = StyleSheet.create({
     pageContainer: {
       flex: 1, 

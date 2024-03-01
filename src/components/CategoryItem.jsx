@@ -1,25 +1,19 @@
-import { Text, StyleSheet, Pressable } from 'react-native'
-import React from 'react'
-import Card from './Card'
+import { Pressable, StyleSheet, Text } from "react-native";
+import Card from "./Card";
 import { colors } from "../global/colors";
 
-const CategoryItem = ({category, setCategorySelected}) => {
+const CategoryItem = ({ category, navigation }) => {
   return (
-    <>
-        <Card style={styles.container}>
-            <Pressable onPress={()=> setCategorySelected(category)}>
-                <Text style={styles.text}>{category}</Text>
-            </Pressable>
-            
-        </ Card>
-       
-    </>
-        
-    
-  )
-}
+    <Pressable onPress={() => navigation.navigate("ItemListCategories", {category})}>
+      <Card style={styles.container}>
+        <Text style={styles.text}>{category}</Text>
+      </Card>
+    </Pressable>
+  );
+};
 
-export default CategoryItem
+export default CategoryItem;
+
 
 const styles = StyleSheet.create({
     
